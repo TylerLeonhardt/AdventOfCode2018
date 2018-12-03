@@ -10,9 +10,9 @@ export abstract class AdventOfCodeDay {
      * @param fileName the name of the txt file for the input for a part of a given day of Advent of Code
      * @returns an array of strings where each line of the file is an item in the array
      */
-    public getInput(day: string, fileName: string): string[] {
+    public getInput(fileName: string = "input"): string[] {
         // since we run from dist, we need to go grab the txt file from the src directory
-        return fs.readFileSync(`${__dirname}/../src/${day}/${fileName}.txt`, "utf8").split("\n");
+        return fs.readFileSync(`${__dirname}/../src/Day${this.dayNumber}/${fileName}.txt`, "utf8").split("\n");
     }
 
     /**

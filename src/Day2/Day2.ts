@@ -1,5 +1,4 @@
 import { AdventOfCodeDay } from "../AdventOfCodeDay";
-// tslint:disable:no-console
 
 export class Day2 extends AdventOfCodeDay {
     constructor() {
@@ -8,7 +7,7 @@ export class Day2 extends AdventOfCodeDay {
     }
 
     public part1(): void {
-        const input: string[] = this.getInput("Day2", "input");
+        const input: string[] = this.getInput();
         let numOfTwos: number = 0;
         let numOfThrees: number = 0;
 
@@ -45,7 +44,7 @@ export class Day2 extends AdventOfCodeDay {
 
     // tslint:disable-next-line:member-ordering
     public part2(): void {
-        const input: string[] = this.getInput("Day2", "input");
+        const input: string[] = this.getInput();
         let answer: string = "";
 
         outer:

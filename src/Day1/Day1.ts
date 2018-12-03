@@ -1,5 +1,4 @@
 import { AdventOfCodeDay } from "../AdventOfCodeDay";
-// tslint:disable:no-console
 
 export class Day1 extends AdventOfCodeDay {
     constructor() {
@@ -8,7 +7,7 @@ export class Day1 extends AdventOfCodeDay {
     }
 
     public part1(): void {
-        const input = this.getInput("Day1", "part1");
+        const input = this.getInput();
 
         let answer = 0;
         for (const item of input) {
@@ -19,7 +18,7 @@ export class Day1 extends AdventOfCodeDay {
     }
 
     public part2(): void {
-        const input = this.getInput("Day1", "part2");
+        const input = this.getInput();
 
         const sums = new Set<number>();
         let index = 0;
