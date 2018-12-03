@@ -2,6 +2,11 @@ import { AdventOfCodeDay } from "../AdventOfCodeDay";
 // tslint:disable:no-console
 
 export class Day1 extends AdventOfCodeDay {
+    constructor() {
+        super();
+        this.dayNumber = 1;
+    }
+
     public part1(): void {
         const input = this.getInput("Day1", "part1");
 
@@ -10,7 +15,7 @@ export class Day1 extends AdventOfCodeDay {
             answer += parseInt(item, 10);
         }
 
-        this.logAnswer("Day1", "part1", answer);
+        this.logAnswer("part1", answer);
     }
 
     public part2(): void {
@@ -25,6 +30,6 @@ export class Day1 extends AdventOfCodeDay {
             index++;
         }
 
-        this.logAnswer("Day1", "part2", currentSum);
+        this.logAnswer("part2", currentSum);
     }
 }

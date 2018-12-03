@@ -2,8 +2,13 @@ import { AdventOfCodeDay } from "../AdventOfCodeDay";
 // tslint:disable:no-console
 
 export class Day2 extends AdventOfCodeDay {
+    constructor() {
+        super();
+        this.dayNumber = 2;
+    }
+
     public part1(): void {
-        const input: string[] = this.getInput("Day2", "part1");
+        const input: string[] = this.getInput("Day2", "input");
         let numOfTwos: number = 0;
         let numOfThrees: number = 0;
 
@@ -24,7 +29,7 @@ export class Day2 extends AdventOfCodeDay {
             numOfThrees += hasThree ? 1 : 0;
         }
 
-        this.logAnswer("Day2", "part1", numOfTwos * numOfThrees);
+        this.logAnswer("part1", numOfTwos * numOfThrees);
     }
 
     private getCharacterFrequencyMatrix(str: string): Map<string, number> {
@@ -40,6 +45,30 @@ export class Day2 extends AdventOfCodeDay {
 
     // tslint:disable-next-line:member-ordering
     public part2(): void {
-        this.logAnswer("Day2", "part2", "not implemented");
+        const input: string[] = this.getInput("Day2", "input");
+        let answer: string = "";
+
+        outer:
+        for (let i = 0; i < input.length; i++) {
+            for (let j = i + 1; j < input.length; j++) {
+                if (this.computeWeakEditDistance(input[i], input[j]) === 1) {
+                    for (let k = 0; k < input[i].length; k++) {
+                        answer += input[i].charAt(k) === input[j].charAt(k) ? input[j].charAt(k) : "";
+                    }
+                    break outer;
+                }
+            }
+        }
+
+        this.logAnswer("part2", answer);
+    }
+
+    // tslint:disable-next-line:member-ordering
+    private computeWeakEditDistance(str1: string, str2: string): number {
+        let differences: number = 0;
+        for (let i = 0; i < str1.length; i++) {
+            differences += str1.charAt(i) !== str2.charAt(i) ? 1 : 0;
+        }
+        return differences;
     }
 }
